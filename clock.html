@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <link rel="stylesheet" href="clock.css">
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+            
+                  <!-- <form>
+                      <input type="button" class="button" id="b" value="Stopwatch">
+                  </form> -->  <a name="stopwatch" class="button" href="">Stopwatch</a>
+                    <a name="world_clock"class="button"href="">World Clock</a>
+                    <a  name="alarm"class="button"href="">Alarm</a>
+                    <a  name="timer"class="button"href="">Timer</a>
+                    
+                    
+
+                    
+
+                
+    
+    </header>
+    <section>
+        <div class="content">
+            <div class="bor"></div>
+            <div class="clock">
+                <span id="clk"></span>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script>
+        
+                window.onload=function(){gettime();}
+                function gettime(){
+                    var today=new Date();
+                    var h=today.getHours()> 12 ? today.getHours()-12:today.getHours();
+                    var m=today.getMinutes();
+                    var s=today.getSeconds();
+                    m=checktime(m);
+                    s=checktime(s);
+                    if(today.getHours()<12){
+                    document.getElementById("clk").innerHTML=h+":"+m+":"+s+"AM";}
+                    else{
+                        document.getElementById("clk").innerHTML=h+":"+m+":"+s+" PM";
+                    }
+                    setTimeout(function(){gettime()},1000);
+                }
+                function checktime(i){
+                    if(i<10){
+                        i="0"+i;
+                    }
+                    return i;
+                }
+    </script>
+</body>
+</html>
